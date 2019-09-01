@@ -149,4 +149,4 @@ npm install
 
 ## Run
 0. Make sure MongoDB is running, if not: sudo ~/mongodb/bin/mongod (assuming you have ~/mongodb directory).
-1. npm run start
+1. npm start
