@@ -28,9 +28,9 @@ exports.postUsers = function(req) {
   var user = new User();
   user.name = req.body.name;
   user.avatar = req.body.avatar;
-  user.save(function(err) {
+  user.save(function(err, obj) {
     if (err) deferrer.reject(err);
-    deferrer.resolve('User Added');
+    deferrer.resolve('User ' + obj._id + ' Added');
   });
 
   return deferrer.promise;
