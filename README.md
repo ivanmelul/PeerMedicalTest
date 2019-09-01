@@ -70,7 +70,7 @@ Create a new article.
 Edit an article.
 
 - Method: PUT
-- URL: /api/articles
+- URL: /api/articles/5d699eb0c4048c1de843e5db
 - Headers:
 
     {
@@ -105,7 +105,7 @@ Edit an article.
 Remove an article.
 
 - Method: DELETE
-- URL: /api/articles
+- URL: /api/articles/5d699eb0c4048c1de843e5db
 - Headers:
 
     {
