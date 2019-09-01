@@ -30,7 +30,10 @@ exports.postUsers = function(req) {
   user.avatar = req.body.avatar;
   user.save(function(err, obj) {
     if (err) deferrer.reject(err);
-    deferrer.resolve('User ' + obj._id + ' Added');
+    deferrer.resolve({
+      message:'User Added',
+      user:obj
+    });
   });
 
   return deferrer.promise;

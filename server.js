@@ -31,6 +31,10 @@ var app = express();
 
 
 // Use the body-parser package in our application
+app.use(bodyParser.json({
+  type: ['json']
+}));
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -64,10 +68,7 @@ router.route('/users')
 
 router.route('/articles')
   .post(authController.isAuthenticated, articleController.postArticles)
-
-
-router.route('/articles_by_tags')
-  .post(authController.isAuthenticated, articleController.getArticlesByTags);
+  .get(authController.isAuthenticated, articleController.getArticles);
 
 router.route('/articles/:article_id')
 .put(authController.isAuthenticated, articleController.putArticle)

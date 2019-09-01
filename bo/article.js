@@ -4,9 +4,14 @@ var Q           = require('q');
 
 
 // Create endpoint /api/articles for GET
-exports.getArticlesByTags = function(req) {
+exports.getArticles = function(req) {
   var deferrer = Q.defer();
-  Article.find({tags:{$in:req.body.tags}}).populate('userId').exec(function(err, articles) {
+
+  var tagsArray = req.query.tags.split(',');
+
+  console.log(tagsArray);
+
+  Article.find({tags:{$in:tagsArray}}).populate('userId').exec(function(err, articles) {
     if (err) deferrer.reject(err);
       deferrer.resolve(articles);
   });
@@ -22,9 +27,12 @@ exports.postArticles = function(req) {
 	article.title = req.body.title;
 	article.text = req.body.text;
 	article.tags = req.body.tags;
-	article.save(function(err) {
+	article.save(function(err, obj) {
 	  if (err) deferrer.reject(err);
-	  deferrer.resolve('Article Added');
+	  deferrer.resolve({
+      message:'Article Added',
+      user:obj
+    });
 	});
 
   return deferrer.promise;
@@ -37,10 +45,13 @@ exports.putArticle = function(req) {
   var deferrer = Q.defer();
 
   // Use the Article model to find a specific Article
-  Article.update({ _id: req.params.article_id }, req.body, function(err, r, raw) {
-    if (r.n == 0) deferrer.reject("Article doesn't exist");
+  Article.update({ _id: req.params.article_id }, req.body, function(err, result, obj) {
+    if (result.n == 0) deferrer.reject("Article doesn't exist");
     if (err) deferrer.reject(err);
-    deferrer.resolve('Article ' + req.params.article_id + ' updated');
+    deferrer.resolve({
+      message:'Article Updated',
+      article:req.body
+    });
   });
 
   return deferrer.promise;
@@ -57,7 +68,10 @@ exports.deleteArticle = function(req) {
   Article.remove({ _id: req.params.article_id }, function(err, r, raw) {
     if (err) deferrer.reject(err);
     if (r.result.n == 0) deferrer.reject("Article doesn't exist");
-    else deferrer.resolve('Article ' + req.params.article_id + ' deleted');
+    else deferrer.resolve({
+      message:'Article Deleted',
+      success:"true"
+    });
   });
 
   return deferrer.promise;

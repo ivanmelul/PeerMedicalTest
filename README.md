@@ -16,7 +16,7 @@ Create a new user.
 
     "token": "5CD4ED173E1C95FE763B753A297D5",
 
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/json"
 
     }
 
@@ -43,7 +43,7 @@ Create a new article.
 
     "token": "5CD4ED173E1C95FE763B753A297D5",
 
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/json"
 
     }
 
@@ -57,11 +57,7 @@ Create a new article.
     
     "text": "TV Full HD",
     
-    "tags[0]":"electronic",
-    
-    "tags[1]":"TV",
-    
-    "tags[2]":"samsung"
+    "tags":["electronic", "TV", "samsung"]
     
     }
 
@@ -77,7 +73,7 @@ Edit an article.
 
     "token": "5CD4ED173E1C95FE763B753A297D5",
 
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/json"
 
     }
 
@@ -91,11 +87,7 @@ Edit an article.
     
     "text": "TV Full HD",
     
-    "tags[0]":"electronic",
-    
-    "tags[1]":"TV",
-    
-    "tags[2]":"samsung"
+    "tags":["electronic", "TV", "samsung"]
     
     }
     
@@ -112,35 +104,25 @@ Remove an article.
 
     "token": "5CD4ED173E1C95FE763B753A297D5",
 
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/json"
 
     }
    
 
 
-### POST /api/articles_by_tags
+### POST /api/articles
 Return all articles (from all users) that contains the given tag(s) (1 or more).
 
-- Method: POST
-- URL: /api/articles_by_tags
+- Method: GET
+- URL: /api/articles?tags=book,TV
 - Headers:
 
     {
 
     "token": "5CD4ED173E1C95FE763B753A297D5",
 
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/json"
 
-    }
-
-- Body:
-
-    {
-    
-    "tags[0]":"book",
-    
-    "tags[1]":"TV",
-    
     }
 
     

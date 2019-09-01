@@ -8,8 +8,8 @@ var fs              = require('fs');
 var settings = require('../config/settings');
 
 // Create endpoint /api/articles for GET
-exports.getArticlesByTags = function(req, res) {
-  boArticle.getArticlesByTags(req).then(function(resp){
+exports.getArticles = function(req, res) {
+  boArticle.getArticles(req).then(function(resp){
       res.json(resp);
   }, function(err){
     res.status(500).send(err);
