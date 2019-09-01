@@ -144,9 +144,9 @@ Return all articles (from all users) that contains the given tag(s) (1 or more).
     }
 
     
-##Install
+### Install
 npm install
 
-##Run
+### Run
 0. Make sure MongoDB is running, if not: sudo ~/mongodb/bin/mongod (assuming you have ~/mongodb directory).
 1. npm run start
