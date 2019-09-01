@@ -12,20 +12,20 @@ Create a new user.
 - URL: /api/users
 - Headers:
 
-{
+    {
 
-"token": "5CD4ED173E1C95FE763B753A297D5",
+    "token": "5CD4ED173E1C95FE763B753A297D5",
 
-"Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded"
 
-}
+    }
 
 - Body:
 
-{
+    {
 
-"name": "Lorie",
+    "name": "Lorie",
 
-"avatar": "https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png"
+    "avatar": "https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/87-512.png"
 
-}
+    }
