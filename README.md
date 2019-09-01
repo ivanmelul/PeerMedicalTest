@@ -64,3 +64,84 @@ Create a new article.
     "tags[2]":"samsung"
     
     }
+
+
+### PUT /api/articles/:article_id
+Edit an article.
+
+- Method: PUT
+- URL: /api/articles
+- Headers:
+
+    {
+
+    "token": "5CD4ED173E1C95FE763B753A297D5",
+
+    "Content-Type": "application/x-www-form-urlencoded"
+
+    }
+
+- Body:
+
+    {
+
+    "userId": "5d699f8ac4048c1de843e5dc",
+
+    "title": "TV",
+    
+    "text": "TV Full HD",
+    
+    "tags[0]":"electronic",
+    
+    "tags[1]":"TV",
+    
+    "tags[2]":"samsung"
+    
+    }
+    
+    
+
+### DELETE /api/articles/:article_id
+Remove an article.
+
+- Method: DELETE
+- URL: /api/articles
+- Headers:
+
+    {
+
+    "token": "5CD4ED173E1C95FE763B753A297D5",
+
+    "Content-Type": "application/x-www-form-urlencoded"
+
+    }
+   
+
+
+### POST /api/articles_by_tags
+Return all articles (from all users) that contains the given tag(s) (1 or more).
+
+- Method: POST
+- URL: /api/articles_by_tags
+- Headers:
+
+    {
+
+    "token": "5CD4ED173E1C95FE763B753A297D5",
+
+    "Content-Type": "application/x-www-form-urlencoded"
+
+    }
+
+- Body:
+
+    {
+    
+    "tags[0]":"book",
+    
+    "tags[1]":"TV",
+    
+    }
+
+    
+    
