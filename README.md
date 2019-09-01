@@ -3,9 +3,9 @@
 RESTful API with Node.js, Express.js, Mongoose and MongoDB.
 Example of a RESTful API built with Node.js, Express.js, Mongoose and MongoDB.
 
-RESTful API endpoints
+## RESTful API endpoints
 
-POST /api/users
+### POST /api/users
 Create a new user.
 
 Method: POST
