@@ -6,11 +6,7 @@ var Q           = require('q');
 // Create endpoint /api/articles for GET
 exports.getArticles = function(req) {
   var deferrer = Q.defer();
-
   var tagsArray = req.query.tags.split(',');
-
-  console.log(tagsArray);
-
   Article.find({tags:{$in:tagsArray}}).populate('userId').exec(function(err, articles) {
     if (err) deferrer.reject(err);
       deferrer.resolve(articles);
